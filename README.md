@@ -3,7 +3,7 @@ Repository for EMNLP-2023 Findings Paper - xDial-Eval: A Multilingual Open-Domai
 
 ## Changelog
 
-[25/10/21] Add data to the repository.
+[25/10/2023] Add data to the repository.
 
 ## Data Format
 
