@@ -18,19 +18,10 @@ LOGGER = logging.getLogger(__name__)
 
 def get_raw_data(inp_file, lang):
     data = pd.read_csv(inp_file)
-    dialog_texts = [item.split('\n') for item in list(data[f'{lang}_dial'])]
-    new_dialogs = []
-    for d in dialog_texts:
-        temp = []
-        for idx, utt in enumerate(d):
-            if idx % 2  == 0:
-                prefix = '[H]'
-            else:
-                prefix = '[C]'
-            temp.append(f'{prefix} {utt}')
-        new_dialogs.append('\n'.join(temp)) 
-    texts = [{'prompt': d} for d in new_dialogs]                                                                                                                                                   
-    return texts, list(data['ratings'])
+    contexts = list(data[f'{lang}_ctx'])
+    responses = list(data[f'{lang}_res'])
+    prompts = [{'prompt': f"Context:\n{c}\nResponse:\n{r}"} for c, r in zip(contexts, responses)]                                                                                                                                                  
+    return prompts, list(data['ratings'])
 
 
 def read_args():
@@ -55,7 +46,7 @@ def get_outputs_withprobs(args, model, tokenizer, batch):
     new_texts = []
     for t in texts:
         ####llama-2-template
-        p = f"<s> [INST] <<SYS>>\nYou are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.\n\nIf a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.\n<</SYS>>\n\nGiven the following dialogue between a human ([H]) and a chatbot ([C]), whether the dialogue is coherent?\n\n{t}\n\n [/INST] "
+        p = f"<s> [INST] <<SYS>>\nYou are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.\n\nIf a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.\n<</SYS>>\n\nGiven the following dialogue context and response, predict whether the response is relevant to the context.\n\n{t}\n\n [/INST] "
         new_texts.append(p)
     encoding = tokenizer(new_texts, return_tensors='pt', truncation=True, max_length=args.max_encode_len).to(model.device)
     label_list_str = ['Yes', 'No']
@@ -85,7 +76,9 @@ def run_generation(args):
     model = LlamaForCausalLM.from_pretrained(args.model, device_map='auto', torch_dtype=torch.float16)
     model = model.to(device)
     
-    input_f_list = ['fed-dial.csv', 'conture-dial.csv', 'ieval-dial.csv', 'persona-see.csv', 'reliable-dial.csv']
+    input_f_list = ['conture-turn.csv', 'convai2-grade.csv', 'dailydialog-grade.csv', 'dailydialog-gupta.csv', 'dailydialog-zhao.csv', 
+                    'dstc10-persona_clean.csv', 'dstc10-topical_clean.csv', 'empathetic-grade.csv', 'fed-turn.csv', 'persona-usr.csv', 
+                    'persona-zhao.csv', 'topical-usr.csv']
     
     for input_file in input_f_list:
         input_file_full_path = os.path.join(args.data_folder, input_file)
