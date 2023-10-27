@@ -5,6 +5,8 @@ Repository for EMNLP-2023 Findings Paper - xDial-Eval: A Multilingual Open-Domai
 
 [25/10/2023] Add data to the repository.
 
+[27/10/2023] Add code for zero-shot inference with open-source LLMs to the repository.
+
 ## Data Format
 
 1. The csv files in the turn-level data include columns: ``[lang]_ctx``, ``[lang]_res``, and ``raings`` where ``[lang]`` refers to different languages.
@@ -31,5 +33,9 @@ Note that for accessing Human-Eval data, please contact the original authors of 
 ### Acknowledge Statement
 We thank all the authors for kindly making their data publicly available. In the same spirit, we make our multilingual extension publicly available as well. We hope our data can further benefit researchers working on multilingual open-domain dialogue systems and evaluation metrics.
 
-## Code Coming Soon
+## Zero-shot Inference with Open-source LLMs
+
+Currently, I included scripts for zero-shot inference with LLama-2, Baichuan-2, Phoenix, and Alpaca. You can easily adapt the scripts to other open-source LLMs. 
+
+The python scripts can be found in ``zeroshot_inference`` and the shell scripts are in ``scripts/zeroshot_inference``. To execute the code, simply run ``bash/zeroshot_inference/turn/infer_alpaca.sh``. 
 
