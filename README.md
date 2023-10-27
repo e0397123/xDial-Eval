@@ -37,5 +37,7 @@ We thank all the authors for kindly making their data publicly available. In the
 
 Currently, I included scripts for zero-shot inference with LLama-2, Baichuan-2, Phoenix, and Alpaca. You can easily adapt the scripts to other open-source LLMs. 
 
-The python scripts can be found in ``zeroshot_inference`` and the shell scripts are in ``scripts/zeroshot_inference``. To execute the code, simply run ``bash/zeroshot_inference/turn/infer_alpaca.sh``. 
+The python scripts can be found in ``zeroshot_inference`` and the shell scripts are in ``scripts/zeroshot_inference``. 
+
+Example execution - ``bash zeroshot_inference/turn/infer_alpaca.sh``. 
 
