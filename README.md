@@ -35,9 +35,6 @@ Repository for EMNLP-2023 Findings Paper - xDial-Eval: A Multilingual Open-Domai
 
 Note that for accessing Human-Eval data, please contact the original authors of [Human Evaluation of Conversations is an Open Problem: comparing the sensitivity of various methods for evaluating dialogue agents](https://aclanthology.org/2022.nlp4convai-1.8/). Once you have obtained the permission, you may contact me to obtain the multilingual extension of Human-Eval data.
 
-### Acknowledge Statement
-We thank all the authors for kindly making their data publicly available. In the same spirit, we make our multilingual extension publicly available as well. We hope our data can further benefit researchers working on multilingual open-domain dialogue systems and evaluation metrics.
-
 ## Zero-shot Inference with Open-source LLMs
 
 Currently, I included scripts for zero-shot inference with LLama-2, Baichuan-2, Phoenix, and Alpaca. You can easily adapt the scripts to other open-source LLMs. 
@@ -48,6 +45,9 @@ Example execution - ``bash zeroshot_inference/turn/infer_alpaca.sh``.
 
 ## Code for Finetuning Open-source LLMs (Coming Soon)
 
-### License
+## License
 The code and models in this repository are licensed under the [GNU General Public License v3](https://www.gnu.org/licenses/gpl-3.0.en.html) for academic and other non-commercial uses. For commercial use of the code and models, separate commercial licensing is available. Please contact:
 - Chen Zhang (chen_zhang@u.nus.edu)
+
+## Acknowledge Statement
+We thank all the authors for kindly making their data publicly available. In the same spirit, we make our multilingual extension publicly available as well. We hope our data can further benefit researchers working on multilingual open-domain dialogue systems and evaluation metrics.
