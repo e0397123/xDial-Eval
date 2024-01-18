@@ -37,13 +37,11 @@ Note that for accessing Human-Eval data, please contact the original authors of 
 
 ## Zero-shot Inference with Open-source LLMs
 
-Currently, I included scripts for zero-shot inference with LLama-2, Baichuan-2, Phoenix, and Alpaca. You can easily adapt the scripts to other open-source LLMs. 
+Currently, we included scripts for zero-shot inference with LLama-2, Baichuan-2, Phoenix, and Alpaca. You can easily adapt the scripts to other open-source LLMs. 
 
 The python scripts can be found in ``zeroshot_inference`` and the shell scripts are in ``scripts/zeroshot_inference``. 
 
 Example execution - ``bash zeroshot_inference/turn/infer_alpaca.sh``. 
-
-## Code for Finetuning Open-source LLMs (Coming Soon)
 
 ## License
 The code and models in this repository are licensed under the [GNU General Public License v3](https://www.gnu.org/licenses/gpl-3.0.en.html) for academic and other non-commercial uses. For commercial use of the code and models, separate commercial licensing is available. Please contact:
