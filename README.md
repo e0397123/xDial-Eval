@@ -47,5 +47,28 @@ Example execution - ``bash zeroshot_inference/turn/infer_alpaca.sh``.
 The code and models in this repository are licensed under the [GNU General Public License v3](https://www.gnu.org/licenses/gpl-3.0.en.html) for academic and other non-commercial uses. For commercial use of the code and models, separate commercial licensing is available. Please contact:
 - Chen Zhang (chen_zhang@u.nus.edu)
 
+## Please cite us if you found our benchmark useful
+```
+@inproceedings{zhang-etal-2023-xdial,
+    title = "x{D}ial-Eval: A Multilingual Open-Domain Dialogue Evaluation Benchmark",
+    author = "Zhang, Chen  and
+      D{'}Haro, Luis  and
+      Tang, Chengguang  and
+      Shi, Ke  and
+      Tang, Guohua  and
+      Li, Haizhou",
+    editor = "Bouamor, Houda  and
+      Pino, Juan  and
+      Bali, Kalika",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2023",
+    month = dec,
+    year = "2023",
+    address = "Singapore",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.findings-emnlp.371",
+    doi = "10.18653/v1/2023.findings-emnlp.371",
+    pages = "5579--5601",
+}
+```
 ## Acknowledge Statement
 We thank all the authors for kindly making their data publicly available. In the same spirit, we make our multilingual extension publicly available as well. We hope our data can further benefit researchers working on multilingual open-domain dialogue systems and evaluation metrics.
